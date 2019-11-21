@@ -11,6 +11,6 @@ public static double farenheitToCelcius (double farenheit) {
 public static double KelvinToCelcius (double kelvin) {
 	double celcius = (kelvin-273.15);
 	return celcius;
-	
 }
+
 }
