@@ -9,13 +9,14 @@ public class Main {
 public static void main(String[] args) {
 	System.out.println(farenheitToCelcius (50));
 	System.out.println(KelvinToCelcius(0));
-	System.out.println(fluidpressure (10));
+	System.out.println(fluidpressure(FluidTable.WATER, 10));
 	System.out.println(pressureUnderWater(10));
 	System.out.println(kineticEnergy(2,2));
 	System.out.println(fallSpeed(2.5));
 	System.out.println(delta(1,10));
 	System.out.println(delta(5,1));
 	System.out.println(volumetoMass(FluidTable.WATER,1));
+	System.out.println(volumeToMassGas(GasTable.AIR,1));
 }
 public static double farenheitToCelcius (double farenheit) {
 	double celcius = ((farenheit - 32)*5)/9;
@@ -55,7 +56,9 @@ public static double volumetoMass(FluidTable fluid, double volume) {
 	double mass = fluid.density * volume;
 	return mass; 
 }
-
-
+public static double volumeToMassGas (GasTable gas, double volume) {
+double mass = gas.density * volume;
+return mass;
+}
 
 }
