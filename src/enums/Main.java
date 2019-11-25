@@ -15,6 +15,7 @@ public static void main(String[] args) {
 	System.out.println(fallSpeed(2.5));
 	System.out.println(delta(1,10));
 	System.out.println(delta(5,1));
+	System.out.println(volumetoMass(FluidTable.WATER,1));
 }
 public static double farenheitToCelcius (double farenheit) {
 	double celcius = ((farenheit - 32)*5)/9;
@@ -50,5 +51,11 @@ public static double delta(double first, double last) {
 	double delta = last - first;
 	return delta;
 }
+public static double volumetoMass(FluidTable fluid, double volume) {
+	double mass = fluid.density * volume;
+	return mass; 
+}
+
+
 
 }
