@@ -60,5 +60,10 @@ public static double volumeToMassGas (GasTable gas, double volume) {
 double mass = gas.density * volume;
 return mass;
 }
-
+public static double volumeToMass(SolidTable solid, double volume) {
+	
+	
+	
+	
+}
 }
