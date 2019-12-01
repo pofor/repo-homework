@@ -1,10 +1,15 @@
 package enums;
 
-
+import java.util.Scanner;
 
 public class Main {
 	
 	static double g = 9.82;	
+	static double R = 8.3144621;
+	static double G = 6.67408*Math.pow(10, -11);
+	static double p_0 = 1000;
+	static double c = 299792458;
+	
 	
 public static void main(String[] args) {
 	System.out.println(farenheitToCelcius (50));
@@ -17,6 +22,7 @@ public static void main(String[] args) {
 	System.out.println(delta(5,1));
 	System.out.println(volumetoMass(FluidTable.WATER,1));
 	System.out.println(volumeToMassGas(GasTable.AIR,1));
+	System.out.println(volumeToMass(SolidTable.IRON,1));
 }
 public static double farenheitToCelcius (double farenheit) {
 	double celcius = ((farenheit - 32)*5)/9;
@@ -61,7 +67,10 @@ double mass = gas.density * volume;
 return mass;
 }
 public static double volumeToMass(SolidTable solid, double volume) {
-	
+
+return solid.density * volume;
+}
+
 	
 	
 	
