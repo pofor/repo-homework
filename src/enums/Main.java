@@ -30,7 +30,9 @@ public static void main(String[] args) {
 	System.out.println(work(50,10));
 	System.out.println(power(1000,2));
 	System.out.println(heatSolid(SolidTable.IRON,1,2)); 
-	
+	System.out.println(heatFluid(FluidTable.WATER,1,10));
+	System.out.println(heatGas(GasTable.AIR,1,1));
+	System.out.println(velocityToHeight(9.82));
 	
 	
 }
@@ -99,7 +101,25 @@ public static double heatSolid(SolidTable solid, double mass, double deltaT) {
 
 return solid.heatCapacity * mass * deltaT;
 }
+public static double heatFluid(FluidTable fluid, double mass, double deltaT) {
 
+return fluid.heatCapacity * mass * deltaT;
+}
+
+public static double heatGas(GasTable gas, double mass, double deltaT) {
+
+return gas.heatCapacity * mass * deltaT;
+}
+
+public static double velocityToHeight(double velocity) {
+
+return Math.pow(velocity, 2)/ (2 * g);
+}
+
+public static double Force (double mass) {
+
+return mass * g;
+}
 
 
 
