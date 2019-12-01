@@ -23,6 +23,9 @@ public static void main(String[] args) {
 	System.out.println(volumetoMass(FluidTable.WATER,1));
 	System.out.println(volumeToMassGas(GasTable.AIR,1));
 	System.out.println(volumeToMass(SolidTable.IRON,1));
+	System.out.println(svtVelocity(10,5)); 
+	
+	
 }
 public static double farenheitToCelcius (double farenheit) {
 	double celcius = ((farenheit - 32)*5)/9;
@@ -70,9 +73,11 @@ public static double volumeToMass(SolidTable solid, double volume) {
 
 return solid.density * volume;
 }
+public static double svtVelocity(double distance, double time) {
 
-	
-	
-	
+return distance/time;
 }
+	
+	
+	
 }
