@@ -10,9 +10,34 @@ public class Main {
 	static double p_0 = 1000;
 	static double c = 299792458;
 	
+	public static void main(String[] args) {
+
+		System.out.println(volumeToMass(SolidTable.IRON, 0.06));
+
+		System.out.println(svtDistance(2.7, 3000));
+
+		System.out.println(heatFluid(FluidTable.WATER, 4, FluidTable.WATER.boilPoint));
+
+		System.out.println(pressureUnderWater(75));
+
+		System.out.println(velocityToHeight(16.667));
+
+		System.out.println(power(work(Force(735),4.8)));
+	/**
+	 * Hur stort är tycket 200 meter under Vattenytan?
+	 */
+		System.out.println(pressureUnderWater(200));
+		
+	/**
+	 * Hur mycket väger 600cm^3 bly?
+	 */
+		System.out.println(volumeToMass(SolidTable.Lead, 0.06));
+		
+	/**
+	 * hur mycket energi krävs för att värma upp 10 liter Aceton från rumstempratur till kokpunkt?
+	 */
+		System.out.println(heatFluid(FluidTable.Aceton, 10, FluidTable.Aceton.boilPoint));
 	
-	
-public static void main(String[] args) {
 	System.out.println(farenheitToCelcius (50));
 	System.out.println(KelvinToCelcius(0));
 	System.out.println(fluidpressure(FluidTable.WATER, 10));
@@ -120,8 +145,4 @@ public static double Force (double mass) {
 
 return mass * g;
 }
-
-
-
-
 }
