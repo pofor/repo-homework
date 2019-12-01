@@ -11,6 +11,7 @@ public class Main {
 	static double c = 299792458;
 	
 	
+	
 public static void main(String[] args) {
 	System.out.println(farenheitToCelcius (50));
 	System.out.println(KelvinToCelcius(0));
@@ -24,6 +25,12 @@ public static void main(String[] args) {
 	System.out.println(volumeToMassGas(GasTable.AIR,1));
 	System.out.println(volumeToMass(SolidTable.IRON,1));
 	System.out.println(svtVelocity(10,5)); 
+	System.out.println(svtDistance(10,5));
+	System.out.println(svtTime(10,2)); 
+	System.out.println(work(50,10));
+	System.out.println(power(1000,2));
+	System.out.println(heatSolid(SolidTable.IRON,1,2)); 
+	
 	
 	
 }
@@ -70,14 +77,31 @@ double mass = gas.density * volume;
 return mass;
 }
 public static double volumeToMass(SolidTable solid, double volume) {
-
 return solid.density * volume;
 }
 public static double svtVelocity(double distance, double time) {
-
 return distance/time;
 }
-	
-	
-	
+public static double svtDistance(double velocity, double time) {
+return velocity * time;
+}
+public static double svtTime(double distance, double velocity) {
+return distance/velocity;
+}
+public static double work(double force, double distance) {
+return force * distance;
+}
+public static double power(double work, double time) {
+
+return work/time;
+}
+public static double heatSolid(SolidTable solid, double mass, double deltaT) {
+
+return solid.heatCapacity * mass * deltaT;
+}
+
+
+
+
+
 }
