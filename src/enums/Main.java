@@ -1,3 +1,27 @@
+/*/ 
+ * 1.översätter farenheit till celcius 
+ * 2. översätter kelvin till celcius
+ * 3. beräknar hur högt tryck det är under vattnet på en viss plats
+ * 4. Samma sak som 3an
+ * 5. Beräknar kenetiska energin
+ * 6. Beräknar potentiella energin 
+ * 7. Beräknar snabbheten när något faller
+ * 8. Beräknar delta 
+ * 9. Beräknar massan på en vätska
+ * 10. Beräknar massan på en gas
+ * 11. Beräknar massan på ett fast ämne
+ * 12. Beräknar snabbheten 
+ * 13. Beräknar sträckan
+ * 14. Beräknar tiden 
+ * 15. Beräknar arbetet 
+ * 16. Beräknar kraften 
+ * 17. beräknar heatCapacity * mass * deltaT för fasta objekt
+ * 18. Beräknar heatCapacity * mass * deltaT flytande objekt
+ * 19. Beräknar heatCapacity * mass * deltaT för gaser 
+ * 20. Beräknar snabbheten på höjd
+ */
+
+
 package enums;
 
 import java.util.Scanner;
@@ -43,6 +67,7 @@ public class Main {
 	System.out.println(fluidpressure(FluidTable.WATER, 10));
 	System.out.println(pressureUnderWater(10));
 	System.out.println(kineticEnergy(2,2));
+	System.out.println(potentialEnergy(2,5));
 	System.out.println(fallSpeed(2.5));
 	System.out.println(delta(1,10));
 	System.out.println(delta(5,1));
@@ -146,3 +171,4 @@ public static double Force (double mass) {
 return mass * g;
 }
 }
+
