@@ -287,7 +287,7 @@ public class hangman_slutprojekt {
 	}
 	
 	/**
-	 * den här metoden ser till att man bara kan skriva in siffror 
+	 * den här metoden ser till att man bara kan skriva in bokstäver
 	 * @return den retunerar ett godkänt värde
 	 */
 	
