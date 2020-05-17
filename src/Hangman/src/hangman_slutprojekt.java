@@ -7,7 +7,7 @@ public class hangman_slutprojekt {
 	
 	static String gameWord = "";
 	static ArrayList<Character> gameWordLetters = new ArrayList<>();
-	
+	static String playerName = "";
 	
 	
 	
@@ -23,7 +23,14 @@ public class hangman_slutprojekt {
 		
 	}
 	
-	
+	/**
+	 * Frågar efter spelarens nam noch sparar sedan detta värdet
+	 */
+	public static void chooseName() {
+		
+		System.out.println("Enter your name");
+		playerName = input.nextLine();
+	}
 		
 	}	
 	
