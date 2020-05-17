@@ -20,6 +20,24 @@ public class hangman_slutprojekt {
 	static int amountWrongs = 0;
 	static int playAgain;
 	
+	public static void main(String[] args) {
+		playGame();
+		
+	}
+	
+	/**
+	 * Denna kallar på klassens metoder i rätt ordning
+	 */
+	private static void playGame() {
+		welcome();
+		chooseName();
+		difficulty();
+		initdisplayword();
+		fillGameWordLetters();
+		gamePlayer();
+		gameEnder();
+	}
+	
 	/** 
 	 * den delar ordens bokstäver i en lista
 	 */
