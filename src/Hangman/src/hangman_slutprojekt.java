@@ -300,7 +300,7 @@ public class hangman_slutprojekt {
 				break;
 
 			} catch (Exception e) {
-				System.out.println("Wrong input! Please enter a number!");
+				System.out.println("Wrong input! Please enter a letter!");
 				input.next();
 			}
 		}
