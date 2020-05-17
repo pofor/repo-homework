@@ -8,8 +8,9 @@ public class hangman_slutprojekt {
 	static String gameWord = "";
 	static ArrayList<Character> gameWordLetters = new ArrayList<>();
 	static String playerName = "";
-	
-	
+	static int playerChooseDifficultie;
+	static String[] easy = {"TABLE", "BED", "ISLAND", "TREE", "LION"};
+    static String[] hard = {"MONITORING", "TELEVISION", "PERSONALITY"};
 	
 	/** 
 	 * den delar ordens bokstäver i en lista
@@ -45,7 +46,32 @@ public class hangman_slutprojekt {
 		System.out.println("Good luck!");
 	}
 	
-	
+	/**
+	 * Här är en metod som spelaren får välja svårighetsgrad och förklarar vad varje det. Det sätter också värdet för det hämliga ordet
+	 */
+	public static void difficulty() {
+		System.out.println("Now you can choose between easy and hard.");
+		System.out.println("Easy, In this difficultie you will be given a random word in the catagory easy. The word will be short and no hard spelling");
+		System.out.println("Hard, This difficultie might contain a sentence or a very complicaded");
+		System.out.println("You will have 8 chanses to guess the right word.");
+		System.out.println("Difficultie: \n 1(Easy) \n 2(Hard)");
+		do {
+			playerChooseDifficultie = exception();
+			input.nextLine();
+		} while (playerChooseDifficultie < 1 || playerChooseDifficultie > 2); {
+			
+			if (playerChooseDifficultie == 1) {
+				
+				gameWord = easy[random.nextInt(easy.length)];
+				
+			}
+			if (playerChooseDifficultie == 2) {
+				
+				gameWord = hard[random.nextInt(hard.length)];
+			
+			}
+		}	
+	}
 	
 	
 	
