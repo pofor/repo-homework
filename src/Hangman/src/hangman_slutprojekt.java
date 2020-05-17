@@ -12,10 +12,14 @@ public class hangman_slutprojekt {
 	static String[] easy = {"TABLE", "BED", "ISLAND", "TREE", "LION"};
     static String[] hard = {"MONITORING", "TELEVISION", "PERSONALITY"};
 	static ArrayList<Character> hiddenWord = new ArrayList<>();
-    
-    
-    
-    
+	static String playerGuess = "";
+	static String displayWord = "";
+	static ArrayList<Character> guessedLetters = new ArrayList<>();
+	static int maxWrongs = 7;
+	static Random random = new Random();
+	static int amountWrongs = 0;
+	
+	
 	/** 
 	 * den delar ordens bokstäver i en lista
 	 */
@@ -88,8 +92,93 @@ public class hangman_slutprojekt {
 			hiddenWord.add('_');
 			
 		}
-	
-	
+		System.out.println(hiddenWord);
+		}
+	/**
+	 * här får spelaren gissa på ordet och metoden kollar om det är rätt eller fel
+	 */
+	public static void gamePlayer() {
+
+		for (int i = 0; i < maxWrongs; i++) {
+			System.out.println("Enter a letter:");
+			playerGuess = input.nextLine().toUpperCase();
+
+			if (!guessedLetters.contains(playerGuess.charAt(0))) {
+
+				guessedLetters.add(playerGuess.charAt(0));
+
+				updatedisplayWord(playerGuess.charAt(0));
+				System.out.println(displayWord);
+
+				if (gameWord.equals(displayWord)) {
+					// vinst
+					break;
+				}
+
+				if (gameWordLetters.contains(playerGuess.charAt(0))) {
+					// gissat rätt
+					System.out.println("Correct");
+					i--;
+
+				}
+
+				else {
+					// felgissning
+					System.out.println("Wrong, try again!");
+					if (i == 0) {
+						System.out.println("                 _____\r\n" + "                |     |\r\n"
+								+ "                      |\r\n" + "                      |\r\n"
+								+ "                      |\r\n" + "                     _|_''', '''");
+
+					}
+
+					else if (i == 1) {
+
+						System.out.println("                 _____\r\n" + "                |     |\r\n"
+								+ "                O     |\r\n" + "                      |\r\n"
+								+ "                      |\r\n" + "                     _|_''', '''");
+					}
+
+					else if (i == 2) {
+						System.out.println("                 _____\r\n" + "                |     |\r\n"
+								+ "                O     |\r\n" + "                |     |\r\n"
+								+ "                |     |\r\n" + "                     _|_''', '''");
+					}
+
+					else if (i == 3) {
+						System.out.println("                 _____\r\n" + "                |     |\r\n"
+								+ "                O     |\r\n" + "               /|     |\r\n"
+								+ "                |     |\r\n" + "                     _|_''', '''");
+					}
+
+					else if (i == 4) {
+						System.out.println("                 _____\r\n" + "                |     |\r\n"
+								+ "                O     |\r\n" + "               /|\\    |\r\n"
+								+ "                |     |\r\n" + "                     _|_''', ''' ");
+					}
+
+					else if (i == 5) {
+						System.out.println("                 _____\r\n" + "                |     |\r\n"
+								+ "                O     |\r\n" + "               /|\\    |\r\n"
+								+ "                |     |\r\n" + "               /     _|_''', '''");
+					}
+
+					else if (i == 6) {
+						System.out.println("                 _____\r\n" + "                |     |\r\n"
+								+ "                O     |\r\n" + "               /|\\    |\r\n"
+								+ "                |     |\r\n" + "               / \\   _|_''','''");
+					}
+
+				}
+
+			} else {
+
+				System.out.println("You already guess this!");
+				i--;
+			}
+		}
+
+	}
 	
 	
 	
