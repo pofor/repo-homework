@@ -1,44 +1,32 @@
+
 import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class hangman_slutprojekt {
-
+public class test {
+	
+	static String gameWord = "";
+	static ArrayList<Character> gameWordLetters = new ArrayList<>();
+	static String playerName = "";
+	static int playerChooseDifficultie;
+	static String[] easy = {"TABLE", "BED", "ISLAND", "TREE", "LION"};
+    static String[] hard = {"MONITORING", "TELEVISION", "PERSONALITY"};
+	static ArrayList<Character> hiddenWord = new ArrayList<>();
+	static String playerGuess = "";
+	static String displayWord = "";
+	static ArrayList<Character> guessedLetters = new ArrayList<>();
+	static int maxWrongs = 7;
 	static Random random = new Random();
 	static int amountWrongs = 0;
-	static int maxWrongs = 7;
-
-	static String playerGuess = "";
-	static String gameWord = "";
-	static String displayWord = "";
-	
-	static Random rand = new Random();
 	static int playAgain;
-	static int ErrorChecker;
-	static ArrayList<Character> guessedLetters = new ArrayList<>();
 	static Scanner input = new Scanner(System.in);
-	static String playerName = "";
-	static int playerChooseMode;
-	static int playerAnswar;
-	static String correctWord = "";
-	static String guesses = "";
-	static int playerGuesses;
-	static int playerChooseDifficultie;
-	static int wrongGuesses = 0;
-	static int guessesLeft;
-	static List<String> wrongGuess = new ArrayList<String>();
-	static String[] easy = {"TABLE", "BED", "ISLAND", "TREE", "LION"};
-    static String[] hard = {"MONITORING", "", ""};
-	static ArrayList<Character> hiddenWord = new ArrayList<>();
-	static ArrayList<Character> gameWordLetters = new ArrayList<>();
-
-	
 	
 	public static void main(String[] args) {
 		playGame();
 		
 	}
+	
 	/**
 	 * Denna kallar på klassens metoder i rätt ordning
 	 */
@@ -64,9 +52,6 @@ public class hangman_slutprojekt {
 		
 	}
 	
-	
-		
-	}
 	/**
 	 * Frågar efter spelarens nam noch sparar sedan detta värdet
 	 */
@@ -75,6 +60,9 @@ public class hangman_slutprojekt {
 		System.out.println("Enter your name");
 		playerName = input.nextLine();
 	}
+		
+	}	
+	
 	/**
 	 * välkommnar spelaren till spelet
 	 */
@@ -85,6 +73,7 @@ public class hangman_slutprojekt {
 		System.out.println("You guess one letter at a time, if you guess all the letters to form the word you win");
 		System.out.println("Good luck!");
 	}
+	
 	/**
 	 * Här är en metod som spelaren får välja svårighetsgrad och förklarar vad varje det. Det sätter också värdet för det hämliga ordet
 	 */
@@ -109,11 +98,9 @@ public class hangman_slutprojekt {
 				gameWord = hard[random.nextInt(hard.length)];
 			
 			}
-		}
-
-		
-		
+		}	
 	}
+	
 	/**
 	 * den fyller en lista med ett visst antal understräck berorde på hur långt ordet är
 	 */
@@ -127,32 +114,14 @@ public class hangman_slutprojekt {
 		}
 		System.out.println(hiddenWord);
 		}
-	public static boolean wordDone() {
-		
-		if (!hiddenWord.contains('_')) {
-			
-			return true;
-			
-			
-		}
-		else {
-			
-			return false;
-			
-		}
-	}
 	/**
 	 * här får spelaren gissa på ordet och metoden kollar om det är rätt eller fel
 	 */
 	public static void gamePlayer() {
 
 		for (int i = 0; i < maxWrongs; i++) {
-			if (wordDone()) {
-				break;
-			}
 			System.out.println("Enter a letter:");
 			playerGuess = input.nextLine().toUpperCase();
-		
 
 			if (!guessedLetters.contains(playerGuess.charAt(0))) {
 
@@ -162,19 +131,19 @@ public class hangman_slutprojekt {
 				System.out.println(displayWord);
 
 				if (gameWord.equals(displayWord)) {
-					// win
+					// vinst
 					break;
 				}
 
 				if (gameWordLetters.contains(playerGuess.charAt(0))) {
-					// guess right
+					// gissat rätt
 					System.out.println("Correct");
 					i--;
 
 				}
 
 				else {
-					// guess wrong
+					// felgissning
 					System.out.println("Wrong, try again!");
 					if (i == 0) {
 						System.out.println("                 _____\r\n" + "                |     |\r\n"
@@ -230,6 +199,7 @@ public class hangman_slutprojekt {
 		}
 
 	}
+	
 	/**
 	 * uppdaterar det hämliga ordet efter vad spelaren svarar eller säger att du gissat fel
 	 * @param playerGuess2 
@@ -257,53 +227,55 @@ public class hangman_slutprojekt {
 		}
 
 		}
-/**
- * metoden visar/skriver vad svaret var och frågar om du skulle vilja spela igen eller avsluta
- */
-	public static void gameEnder() {
-
-		System.out.println("The word was:" + "\t" + gameWord);
-
-		System.out.println("Type: 1, To play again \n 2, To quit the game");
-		while (playAgain < 1 || playAgain > 2) {
-
-
-			playAgain = exception();
-			
-			if (playAgain == 1) {
-				amountWrongs = 0;
-				gameWord = "";
-				playAgain = 0;
-				guessedLetters.clear();
-				playGame();
-			} else if (playAgain == 2) {
-				System.out.println("Thank you for playing!");
-				System.exit(0);
-
-			}
-
-		}
-
-	}
 	
 	/**
-	 * den här metoden ser till att man bara kan skriva in siffror 
-	 * @return den retunerar ett godkänt värde
+	 * metoden visar/skriver vad svaret var och frågar om du skulle vilja spela igen eller avsluta
 	 */
-	
-	public static int exception() {
-		int wrongFromUser;
-		while (true) {
+		public static void gameEnder() {
 
-			try {
-				wrongFromUser = input.nextInt();
-				break;
+			System.out.println("The word was:" + "\t" + gameWord);
 
-			} catch (Exception e) {
-				System.out.println("Wrong input! Please enter a number!");
-				input.next();
+			System.out.println("Type: 1, To play again \n 2, To quit the game");
+			while (playAgain < 1 || playAgain > 2) {
+
+
+				playAgain = exception();
+				
+				if (playAgain == 1) {
+					amountWrongs = 0;
+					gameWord = "";
+					playAgain = 0;
+					guessedLetters.clear();
+					playGame();
+				} else if (playAgain == 2) {
+					System.out.println("Thank you for playing!");
+					System.exit(0);
+
+				}
+
 			}
+
 		}
-		return wrongFromUser;
-	}
+		
+		/**
+		 * den här metoden ser till att man bara kan skriva in siffror 
+		 * @return den retunerar ett godkänt värde
+		 */
+		
+		public static int exception() {
+			int wrongFromUser;
+			while (true) {
+
+				try {
+					wrongFromUser = input.nextInt();
+					break;
+
+				} catch (Exception e) {
+					System.out.println("Wrong input! Please enter a number!");
+					input.next();
+				}
+			}
+			return wrongFromUser;
+		}
+	
 }
