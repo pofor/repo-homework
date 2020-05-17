@@ -180,7 +180,33 @@ public class hangman_slutprojekt {
 
 	}
 	
-	
+	/**
+	 * uppdaterar det hämliga ordet efter vad spelaren svarar eller säger att du gissat fel
+	 * @param playerGuess2 
+	 */
+	private static void updatedisplayWord(char playerGuess2) {
+
+		if (gameWordLetters.contains(playerGuess.charAt(0))) {
+			
+			for (int i = 0; i < gameWord.length(); i++) {
+				
+				if (playerGuess.charAt(0) == gameWord.charAt(i)) {
+					
+					hiddenWord.set(i, playerGuess.charAt(0));
+					
+				}
+				
+			}
+			
+			System.out.println(hiddenWord);
+			
+		}
+			
+		else {
+			System.out.println("Wrong letter guess");
+		}
+
+		}
 	
 	
 	
