@@ -18,7 +18,7 @@ public class hangman_slutprojekt {
 	static int maxWrongs = 7;
 	static Random random = new Random();
 	static int amountWrongs = 0;
-	
+	static int playAgain;
 	
 	/** 
 	 * den delar ordens bokstäver i en lista
@@ -208,7 +208,35 @@ public class hangman_slutprojekt {
 
 		}
 	
-	
+	/**
+	 * metoden visar/skriver vad svaret var och frågar om du skulle vilja spela igen eller avsluta
+	 */
+		public static void gameEnder() {
+
+			System.out.println("The word was:" + "\t" + gameWord);
+
+			System.out.println("Type: 1, To play again \n 2, To quit the game");
+			while (playAgain < 1 || playAgain > 2) {
+
+
+				playAgain = exception();
+				
+				if (playAgain == 1) {
+					amountWrongs = 0;
+					gameWord = "";
+					playAgain = 0;
+					guessedLetters.clear();
+					playGame();
+				} else if (playAgain == 2) {
+					System.out.println("Thank you for playing!");
+					System.exit(0);
+
+				}
+
+			}
+
+		}
+		
 	
 	
 	
