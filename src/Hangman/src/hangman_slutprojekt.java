@@ -11,7 +11,11 @@ public class hangman_slutprojekt {
 	static int playerChooseDifficultie;
 	static String[] easy = {"TABLE", "BED", "ISLAND", "TREE", "LION"};
     static String[] hard = {"MONITORING", "TELEVISION", "PERSONALITY"};
-	
+	static ArrayList<Character> hiddenWord = new ArrayList<>();
+    
+    
+    
+    
 	/** 
 	 * den delar ordens bokstäver i en lista
 	 */
@@ -73,7 +77,17 @@ public class hangman_slutprojekt {
 		}	
 	}
 	
+	/**
+	 * den fyller en lista med ett visst antal understräck berorde på hur långt ordet är
+	 */
+	private static void initdisplayword() {
 	
+		hiddenWord.clear();
+		for (int i = 0; i < gameWord.length();i++) {
+			
+			hiddenWord.add('_');
+			
+		}
 	
 	
 	
