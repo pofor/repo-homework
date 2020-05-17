@@ -34,6 +34,48 @@ public class hangman_slutprojekt {
 		
 	}	
 	
+	/**
+	 * välkommnar spelaren till spelet
+	 */
+	public static void welcome() {
+		System.out.println("Welcome to a game called hangman!");
+		System.out.println("In this game you are suppost to fot letters in words");
+		System.out.println("If your guess is wrong the game will end and the man will be hung");
+		System.out.println("You guess one letter at a time, if you guess all the letters to form the word you win");
+		System.out.println("Good luck!");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
