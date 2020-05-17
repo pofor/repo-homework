@@ -255,29 +255,25 @@ public class hangman_slutprojekt {
 
 		}
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		/**
+		 * den här metoden ser till att man bara kan skriva in siffror 
+		 * @return den retunerar ett godkänt värde
+		 */
+		
+		public static int exception() {
+			int wrongFromUser;
+			while (true) {
+
+				try {
+					wrongFromUser = input.nextInt();
+					break;
+
+				} catch (Exception e) {
+					System.out.println("Wrong input! Please enter a number!");
+					input.next();
+				}
+			}
+			return wrongFromUser;
+		}
 	
 }
